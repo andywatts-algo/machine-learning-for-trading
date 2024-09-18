@@ -59,3 +59,22 @@ class MultipleTimeSeriesCV:
 
     def get_n_splits(self, X, y, groups=None):
         return self.n_splits
+
+
+def extract_and_combine_data():
+    # path = nasdaq_path / '1min_taq'
+    path = Path('/data/machine_learning_for_algorithmic_trading/algoseek/nasdaq100-1min/nasdaq100')
+
+    data = []
+    # ~80K files to process
+    files = list(path.glob('2015/**/*.csv.gz'))
+    for f in tqdm(files):
+        data.append(
+            
+
+pd.read_csv(f, parse_dates=[['Date', 'TimeBarStart']]).rename(columns=str.lower).drop(tcols + drop_cols, axis=1).rename(columns=columns).set_index('date_timebarstart').sort_index().between_time('9:30', '16:00').set_index('ticker', append=True).swaplevel().rename(columns=lambda x: x.replace('tradeat', 'at')))
+
+    data = pd.concat(data).apply(pd.to_numeric, downcast='integer')
+    data.index.rename(['ticker', 'date_time'])
+    print(data.info(show_counts=True))
+    data.to_hdf(nasdaq_path / 'algoseek.h5', 'min_taq')
