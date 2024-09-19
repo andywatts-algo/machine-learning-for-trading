@@ -2,7 +2,7 @@
     "name": "Machine Learning for Algorithmic Trading",
     "build": {
         "context": "../",
-        "dockerfile": "Dockerfile"
+        "dockerfile": "dockerfile"
     },
     "forwardPorts": [8888],
     "customizations": {
@@ -16,7 +16,7 @@
     },
 
     "mounts": [
-        "source=/d/data,target=/data,type=bind"
+        "source=/home/andywatts/Documents/data,target=/data,type=bind"
     ]
 
     // "runArgs": [

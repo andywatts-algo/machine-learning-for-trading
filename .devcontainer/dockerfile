@@ -21,7 +21,7 @@ RUN pip install numpy TA-Lib
 
 
 # Install requirements
-COPY ../requirements.txt /tmp/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 RUN rm /tmp/requirements.txt
 
