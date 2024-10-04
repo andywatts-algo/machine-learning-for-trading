@@ -1,11 +1,15 @@
-ipykernel
-python-dotenv
-jupyter
-pandas
-numpy==1.26.4  # TA-Lib requires numpy==1.26.4
-tqdm
-scipy
-matplotlib
-seaborn
 TA-Lib
+ipykernel
+jupyter
+matplotlib
+numpy==1.26.4  # TA-Lib requires numpy==1.26.4
+pandas
+pandas-datareader
+python-dotenv
+scipy
+seaborn
+statsmodels
 tables
+tqdm
+xgboost
+catboost
